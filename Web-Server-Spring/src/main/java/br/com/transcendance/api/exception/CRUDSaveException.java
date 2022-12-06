@@ -1,0 +1,27 @@
+package br.com.transcendance.api.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+public final class CRUDSaveException extends RuntimeException {
+
+    private static final long serialVersionUID = 1L;
+
+    public CRUDSaveException() {
+        super();
+    }
+
+    public CRUDSaveException(final String message, final Throwable cause) {
+        super(message, cause);
+    }
+
+    public CRUDSaveException(final String message) {
+        super(message);
+    }
+
+    public CRUDSaveException(final Throwable cause) {
+        super(cause);
+    }
+
+}
