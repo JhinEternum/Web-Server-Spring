@@ -1,4 +1,4 @@
-package br.com.transcendance.api.models.items;
+package br.com.transcendance.api.models.character;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,6 @@ import javax.persistence.PreUpdate;
 import javax.validation.constraints.NotEmpty;
 
 import br.com.transcendance.api.models.AbstractBaseEntity;
-import br.com.transcendance.api.models.wallet.Wallet;
 import br.com.transcendance.api.util.ModelUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,15 +19,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Items extends AbstractBaseEntity {
+public class Character extends AbstractBaseEntity {
     private static final long serialVersionUID = 1L;
 
     @NotEmpty
     @Column(unique = true)
     private String name;
 
+    @NotEmpty
+    String health;
+
+    @NotEmpty
+    String adrenaline;
+
+    @NotEmpty
+    String physical;
+
     @OneToOne
-    private Wallet wallet;
+    private CharacterType characterType;
+
+    @OneToOne
+    private CharacterLevel characterLevel;
 
     @PrePersist
     @PreUpdate
