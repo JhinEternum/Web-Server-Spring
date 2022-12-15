@@ -1,16 +1,12 @@
 package br.com.transcendance.api.models.sub_items;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import javax.validation.constraints.NotEmpty;
 
 import br.com.transcendance.api.models.AbstractBaseEntity;
-import br.com.transcendance.api.models.items.Items;
-import br.com.transcendance.api.util.ModelUtil;
+import br.com.transcendance.api.models.item.Item;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,7 +27,7 @@ public class SubItems extends AbstractBaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "items_id", nullable = false)
-    private Items items;
+    private Item items;
 
     // @PrePersist
     // @PreUpdate
